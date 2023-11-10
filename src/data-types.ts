@@ -40,3 +40,34 @@ let n: null = null;
 
 // Object
 let user: object = { name: "inod", age: 31 };
+
+interface User {
+    id: number;
+    name: string;
+    isActive: boolean;
+}
+
+let users: User[] = [
+    { id: 1, name: "inod", isActive: true },
+    { id: 2, name: "ishara", isActive: false },
+];
+interface Contract extends Address {
+    id: number;
+    name: string;
+    birthDay?: Date; // birthDay is an optional
+}
+
+interface Address {
+    city: string;
+    country: string;
+    region: string;
+}
+
+let primaryContract: Contract = {
+    id: 1,
+    name: "inod",
+    // birthDay: new Date("14-10-1992"),
+    city: "Colombo",
+    country: "Sri Lanka",
+    region: "APAC",
+};
