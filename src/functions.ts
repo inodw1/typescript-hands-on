@@ -13,3 +13,12 @@ function clone(source: Data): Data {
 }
 const a: Data = { id: 1, name: "Inod" };
 const b = clone(a);
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+function clone2<T>(source: T): T {
+    return Object.apply({}, source);
+}
+
+const data: Data = { id: 1, name: "Inod" };
+const result = clone2(4);
