@@ -41,6 +41,8 @@ let n: null = null;
 // Object
 let user: object = { name: "inod", age: 31 };
 
+/////////////////////////////////////////////////////////////////////////////////////////////
+
 interface User {
     id: number;
     name: string;
@@ -51,16 +53,19 @@ let users: User[] = [
     { id: 1, name: "inod", isActive: true },
     { id: 2, name: "ishara", isActive: false },
 ];
-interface Contract extends Address {
-    id: number;
-    name: string;
-    birthDay?: Date; // birthDay is an optional
-}
+
+/////////////////////////////////////////////////////////////////////////////////////////////
 
 interface Address {
     city: string;
     country: string;
     region: string;
+}
+
+interface Contract extends Address {
+    id: number;
+    name: string;
+    birthDay?: Date; // birthDay is an optional
 }
 
 let primaryContract: Contract = {
