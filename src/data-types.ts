@@ -64,17 +64,24 @@ interface Address {
 
 type contactName = string;
 
-interface Contract extends Address {
+enum contactStatus {
+    ACTIVE = "active",
+    INACTIVE = "inactive",
+    NEW = "new",
+}
+interface Contact extends Address {
     id: number;
     name: contactName;
     birthDay?: Date; // birthDay is an optional
+    status: contactStatus;
 }
 
-let primaryContract: Contract = {
+let primaryContract: Contact = {
     id: 1,
     name: "inod",
     // birthDay: new Date("14-10-1992"),
     city: "Colombo",
     country: "Sri Lanka",
     region: "APAC",
+    status: contactStatus.ACTIVE,
 };
