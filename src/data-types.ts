@@ -62,9 +62,11 @@ interface Address {
     region: string;
 }
 
+type contactName = string;
+
 interface Contract extends Address {
     id: number;
-    name: string;
+    name: contactName;
     birthDay?: Date; // birthDay is an optional
 }
 
