@@ -64,15 +64,21 @@ interface Address {
 
 type contactName = string;
 
+/*
 enum contactStatus {
     ACTIVE = "active",
     INACTIVE = "inactive",
     NEW = "new",
 }
+*/
+type contactStatus = "active" | "inactive" | "new";
+type ContactBirthDay = Date | number | string;
+
 interface Contact extends Address {
     id: number;
     name: contactName;
-    birthDay?: Date; // birthDay is an optional
+    // birthDay?: Date; // birthDay is an optional
+    birthDay?: ContactBirthDay;
     status: contactStatus;
 }
 
@@ -83,5 +89,23 @@ let primaryContract: Contact = {
     city: "Colombo",
     country: "Sri Lanka",
     region: "APAC",
-    status: contactStatus.ACTIVE,
+    // status: contactStatus.ACTIVE,
+    status: "active",
 };
+
+type AddressableContact = Contact & Address;
+/*
+interface NewUser extends Contact, Address {
+    // new properties go here
+}
+*/
+interface NewUser extends AddressableContact {
+    // new properties go here
+}
+
+function getBirthDay(contact: Contact) {
+    if (typeof contact.birthDay === "number") return new Date(contact.birthDay);
+    if (typeof contact.birthDay === "string")
+        return Date.parse(contact.birthDay);
+    else return contact.birthDay;
+}
