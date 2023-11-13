@@ -109,3 +109,10 @@ function getBirthDay(contact: Contact) {
         return Date.parse(contact.birthDay);
     else return contact.birthDay;
 }
+
+type contactFields = keyof Contact;
+
+function getValue<T, U extends keyof T>(source: T, propertyName: U) {
+    return source[propertyName];
+}
+const getValueResult = getValue({ min: 1, max: 200 }, "min");
